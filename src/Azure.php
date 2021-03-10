@@ -51,6 +51,7 @@ class Azure
                     'grant_type' => 'refresh_token',
                     'client_id' => config('azure.client.id'),
                     'client_secret' => config('azure.client.secret'),
+                    'scope' => config('azure.client.id') . " offline_access" ,
                     'refresh_token' => $refresh_token,
                     'resource' => config('azure.resource'),
                 ]
