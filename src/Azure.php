@@ -99,7 +99,14 @@ class Azure
      */
     public function getAzureUrl()
     {
-        return $this->baseUrl . config('azure.tenant_id') . $this->route2 . "authorize?response_type=code&client_id=" . config('azure.client.id') . "&domain_hint=" . urlencode(config('azure.domain_hint')) . "&scope=" . urldecode(config('azure.scope'));
+        //return $this->baseUrl . config('azure.tenant_id') . $this->route2 . "authorize?response_type=code&client_id=" . config('azure.client.id') . "&domain_hint=" . urlencode(config('azure.domain_hint')) . "&scope=" . urldecode(config('azure.scope'));
+          return $this->baseUrl . config('azure.tenant_id') . $this->route2
+            . "authorize?response_type=code&client_id=" . config('azure.client.id')
+            . "&domain_hint=" . urlencode(config('azure.domain_hint'))
+            . "&scope=" . urldecode(config('azure.scope'))
+            . "&response_mode=" . urldecode(config('azure.responsemode'))    
+            .  "&redirect_uri=" . urldecode(config('azure.redirecturi'))
+            . "&p=" . urldecode(config('azure.policy'));
     }
 
     /**
