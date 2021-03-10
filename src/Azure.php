@@ -46,7 +46,7 @@ class Azure
         $client = new Client();
 
         try {
-            $response = $client->request('POST', $this->baseUrl . config('azure.tenant_id') . $this->route . "token", [
+            $response = $client->request('POST', $this->baseUrl . config('azure.tenant_id') . $this->route . "token?". config('azure.client.policy') , [
                 'form_params' => [
                     'grant_type' => 'refresh_token',
                     'client_id' => config('azure.client.id'),
